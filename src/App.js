@@ -6,12 +6,30 @@ import { Container, Form, Input, Button, ListContainer, Tr, Th } from './Styles'
 
 const App = () => {
 	const [Tasks, SetTasks] = useState([])
+	const [Text, SetText] = useState('')
+
+	const AddTask = event => {
+		event.preventDefault()
+
+		SetTasks(tasks => [...tasks, { text: Text, isDone: false }])
+
+		SetText('')
+	}
+
+	const OnChangeText = event => {
+		SetText(event.target.value)
+	}
 
 	return (
 		<Container>
 			<h1>To Do List React</h1>
-			<Form>
-				<Input type='text' placeholder='Task' />
+			<Form onSubmit={AddTask}>
+				<Input
+					type='text'
+					placeholder='Task'
+					value={Text}
+					onChange={OnChangeText}
+				/>
 				<Button type='submit'>Add</Button>
 			</Form>
 			<ListContainer>
