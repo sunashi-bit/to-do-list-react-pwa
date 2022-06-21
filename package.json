@@ -33,7 +33,9 @@
 		"lint:fix": "eslint --fix src/**/*.{js,jsx}",
 		"lint:check": "eslint src/**/*.{js,jsx}",
 		"prettier:fix": "prettier -w \"src/**/*.{js,jsx}\"",
-		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\""
+		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\"",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
