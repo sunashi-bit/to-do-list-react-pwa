@@ -15,10 +15,16 @@ const App = () => {
 
 		const id = uuid()
 
-		SetTasks(tasks => ({
-			...tasks,
-			[id]: { text: Text, isDone: false },
-		}))
+		SetTasks(tasks => {
+			const newTasks = {
+				...tasks,
+				[id]: { text: Text, isDone: false },
+			}
+
+			localStorage.setItem('tasks', JSON.stringify(newTasks))
+
+			return newTasks
+		})
 
 		SetText('')
 	}
@@ -28,10 +34,16 @@ const App = () => {
 	}
 
 	const OnChangeIsDone = id => {
-		SetTasks(tasks => ({
-			...tasks,
-			[id]: { ...tasks[id], isDone: !tasks[id].isDone },
-		}))
+		SetTasks(tasks => {
+			const newTasks = {
+				...tasks,
+				[id]: { ...tasks[id], isDone: !tasks[id].isDone },
+			}
+
+			localStorage.setItem('tasks', JSON.stringify(newTasks))
+
+			return newTasks
+		})
 	}
 
 	const OnRemoveTask = id => {
@@ -39,13 +51,17 @@ const App = () => {
 			// eslint-disable-next-line no-unused-vars
 			const { [id]: _, ...newTasks } = tasks
 
+			localStorage.setItem('tasks', JSON.stringify(newTasks))
+
 			return newTasks
 		})
 	}
 
 	useEffect(() => {
-		localStorage.setItem('tasks', JSON.stringify(Tasks))
-	}, [Tasks])
+		const tasks = JSON.parse(localStorage.getItem('tasks'))
+
+		SetTasks(tasks || {})
+	}, [])
 
 	return (
 		<Container>
