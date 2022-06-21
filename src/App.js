@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { v4 as uuid } from 'uuid'
 
@@ -42,6 +42,10 @@ const App = () => {
 			return newTasks
 		})
 	}
+
+	useEffect(() => {
+		localStorage.setItem('tasks', JSON.stringify(Tasks))
+	}, [Tasks])
 
 	return (
 		<Container>
