@@ -27,6 +27,13 @@ const App = () => {
 		SetText(event.target.value)
 	}
 
+	const OnChangeIsDone = id => {
+		SetTasks(tasks => ({
+			...tasks,
+			[id]: { ...tasks[id], isDone: !tasks[id].isDone },
+		}))
+	}
+
 	return (
 		<Container>
 			<h1>To Do List React</h1>
@@ -48,8 +55,10 @@ const App = () => {
 				{Object.keys(Tasks).map(id => (
 					<ListItem
 						key={id}
+						id={id}
 						text={Tasks[id].text}
 						isDone={Tasks[id].isDone}
+						onChangeIsDone={OnChangeIsDone}
 					/>
 				))}
 			</ListContainer>
