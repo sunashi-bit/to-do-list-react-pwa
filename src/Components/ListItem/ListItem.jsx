@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Container, Checkbox, Button } from './Styles'
 
-const ListItem = ({ text, isDone, onChangeIsDone, id }) => {
+const ListItem = ({ text, isDone, onChangeIsDone, id, onRemoveTask }) => {
 	return (
 		<Container>
 			<Container as='td'>{text}</Container>
@@ -13,7 +13,7 @@ const ListItem = ({ text, isDone, onChangeIsDone, id }) => {
 				/>
 			</Container>
 			<Container as='td'>
-				<Button>Remove</Button>
+				<Button onClick={() => onRemoveTask(id)}>Remove</Button>
 			</Container>
 		</Container>
 	)

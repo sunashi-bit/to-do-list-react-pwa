@@ -34,6 +34,15 @@ const App = () => {
 		}))
 	}
 
+	const OnRemoveTask = id => {
+		SetTasks(tasks => {
+			// eslint-disable-next-line no-unused-vars
+			const { [id]: _, ...newTasks } = tasks
+
+			return newTasks
+		})
+	}
+
 	return (
 		<Container>
 			<h1>To Do List React</h1>
@@ -62,6 +71,7 @@ const App = () => {
 							text={Tasks[id].text}
 							isDone={Tasks[id].isDone}
 							onChangeIsDone={OnChangeIsDone}
+							onRemoveTask={OnRemoveTask}
 						/>
 					))}
 				</tbody>
