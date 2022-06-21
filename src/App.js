@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
 
+import { v4 as uuid } from 'uuid'
+
 import ListItem from 'Components/ListItem/ListItem'
 
 import { Container, Form, Input, Button, ListContainer, Tr, Th } from './Styles'
 
 const App = () => {
-	const [Tasks, SetTasks] = useState([])
+	const [Tasks, SetTasks] = useState({})
 	const [Text, SetText] = useState('')
 
 	const AddTask = event => {
 		event.preventDefault()
 
-		SetTasks(tasks => [...tasks, { text: Text, isDone: false }])
+		const id = uuid()
+
+		SetTasks(tasks => ({
+			...tasks,
+			[id]: { text: Text, isDone: false },
+		}))
 
 		SetText('')
 	}
