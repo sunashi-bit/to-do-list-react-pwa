@@ -9,7 +9,7 @@ const App = () => {
 		<Container>
 			<h1>To Do List React</h1>
 			<Form>
-				<Input type='text' placeholder='task' />
+				<Input type='text' placeholder='Task' />
 				<Button type='submit'>Add</Button>
 			</Form>
 			<ListContainer>
