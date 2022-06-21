@@ -47,20 +47,24 @@ const App = () => {
 				<Button type='submit'>Add</Button>
 			</Form>
 			<ListContainer>
-				<Tr>
-					<Th>Task</Th>
-					<Th>Is Done</Th>
-					<Th>Actions</Th>
-				</Tr>
-				{Object.keys(Tasks).map(id => (
-					<ListItem
-						key={id}
-						id={id}
-						text={Tasks[id].text}
-						isDone={Tasks[id].isDone}
-						onChangeIsDone={OnChangeIsDone}
-					/>
-				))}
+				<thead>
+					<Tr>
+						<Th>Task</Th>
+						<Th>Is Done</Th>
+						<Th>Actions</Th>
+					</Tr>
+				</thead>
+				<tbody>
+					{Object.keys(Tasks).map(id => (
+						<ListItem
+							key={id}
+							id={id}
+							text={Tasks[id].text}
+							isDone={Tasks[id].isDone}
+							onChangeIsDone={OnChangeIsDone}
+						/>
+					))}
+				</tbody>
 			</ListContainer>
 		</Container>
 	)
