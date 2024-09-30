@@ -5,7 +5,9 @@ export const Container = styled.tr`
 	border-collapse: collapse;
 	padding: 10px;
 	text-align: center;
+
 `
+
 
 export const Checkbox = styled.input`
 	width: 20px;

@@ -18,7 +18,7 @@ const App = () => {
 		SetTasks(tasks => {
 			const newTasks = {
 				...tasks,
-				[id]: { text: Text, isDone: false },
+				[id]: {  text: Text, isDone: false },
 			}
 
 			localStorage.setItem('tasks', JSON.stringify(newTasks))
@@ -65,22 +65,21 @@ const App = () => {
 
 	return (
 		<Container>
-			<h1>To Do List React</h1>
+			<h1>Lista de tareas</h1>
 			<Form onSubmit={AddTask}>
 				<Input
 					type='text'
-					placeholder='Task'
+					placeholder='Agrega una tarea'
 					value={Text}
 					onChange={OnChangeText}
 				/>
-				<Button type='submit'>Add</Button>
+				<Button type='submit'>Agregar</Button>
 			</Form>
 			<ListContainer>
 				<thead>
 					<Tr>
-						<Th>Task</Th>
-						<Th>Is Done</Th>
-						<Th>Actions</Th>
+						<Th>Tarea</Th>
+						<Th>Acccion</Th>
 					</Tr>
 				</thead>
 				<tbody>

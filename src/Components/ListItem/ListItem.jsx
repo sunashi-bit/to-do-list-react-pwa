@@ -13,7 +13,7 @@ const ListItem = ({ text, isDone, onChangeIsDone, id, onRemoveTask }) => {
 				/>
 			</Container>
 			<Container as='td'>
-				<Button onClick={() => onRemoveTask(id)}>Remove</Button>
+				<Button onClick={() => onRemoveTask(id)}>Eliminar</Button>
 			</Container>
 		</Container>
 	)
